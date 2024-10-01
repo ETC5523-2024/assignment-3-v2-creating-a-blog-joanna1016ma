@@ -1,8 +1,8 @@
 ---
-title: "Welcome To My Blog Template"
-author: "Emi Tanaka"
-date: "2022-07-18"
-categories: [news]
+title: "Relationship of Tornado Property Loss and Tornado Characteristics"
+author: "Joanna Ma"
+date: "2024-10-04"
+categories: [blog]
 ---
 
 This is the first post in a Quarto blog. Welcome!

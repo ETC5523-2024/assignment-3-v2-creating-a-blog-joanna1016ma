@@ -2,16 +2,18 @@ project:
   type: website
 
 website:
-  title: "blog-template"
+  title: "Analysis of Tornado Destruction"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/etc5523-2022
+        href: https://github.com/joanna1016ma
 format:
   html:
     theme: cosmo
     css: styles.css
+    backgroundcolor: grey
+    fontcolor: white
 
 
 

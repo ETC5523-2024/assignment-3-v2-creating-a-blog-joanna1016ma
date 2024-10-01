@@ -1,13 +1,16 @@
 ---
-title: "About"
+title: "Joanna Ma"
 image: profile.jpg
 about:
   template: jolla
   links:
     - icon: github
       text: Github
-      href: https://github.com/etc5523-2022
+      href: https://github.com/joanna1016ma
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/joanna-ma-44743919a/
 
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+I am a year 1 Business Analytics Master student in Monash University. I have a bachelor's degree in BBA Marketing, and also currently a part time Business Analyst in Polar Air Cargo.

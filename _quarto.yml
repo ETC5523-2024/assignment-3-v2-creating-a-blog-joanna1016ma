@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Analysis of Tornado Destruction"
@@ -12,8 +13,8 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    backgroundcolor: grey
-    fontcolor: white
+    backgroundcolor: aliceblue
+    fontcolor: grey
 
 
 

@@ -12,11 +12,20 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE)
 ```
 
-This blog post analyzes the property loss caused by tornadoes in the United States, and the relationship with its characteristics. I will be looking into tornado property loss and its relationship with tornado width, length and magnitude.
- 
-The data used in this blog post is downloaded from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-05-16) from the Data Science Learning Community. The dataset includes variable of tornado number, date and time, magnitude on the F scale and whether it is estimated, injuries, fatalities and property loss caused by the tornado, starting and ending latitude and longitude, tornado length and width and number of state affected.
+```{r library}
 
-The dataset is cleaned to exclude NA value of property loss as it is the main variable I am looking at. You may follow to below code if you are interested to reproduce this analysis:
+library(tidyverse)
+library(kableExtra)
+library(plotly)
+
+```
+
+
+This blog post analyzes the property loss caused by tornadoes in the United States, and the relationship with its characteristics. I will be looking into tornado property loss and its relationship with tornado width, length and magnitude.  
+ 
+The data used in this blog post is downloaded from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-05-16) from the Data Science Learning Community. The dataset includes variable of tornado number, date and time, magnitude on the F scale (from 0 to 5) and whether it is estimated, injuries, fatalities and property loss caused by the tornado, starting and ending latitude and longitude, tornado length and width and number of state affected.  
+
+The dataset is cleaned to exclude NA value of property loss as it is the main variable I am looking at. You may follow to below code if you are interested to reproduce this analysis:  
 
 ```{r clean, echo=TRUE}
 
@@ -50,9 +59,9 @@ tornado_clean %>%
 
 ```
 
-@tbl-summary gives a glimpse of property loss caused by tornadoes in 1950-2022. While most of the tornadoes caused only less than \$0.5 million loss, a few cases caused extremely high loss of up to almost \$3 billion. The distribution is very skewed and the range is very large!
+@tbl-summary gives a glimpse of property loss caused by tornadoes in 1950-2022. While most of the tornadoes caused only less than \$0.5 million loss, a few cases caused extremely high loss of up to almost \$3 billion. The distribution is very skewed and the range is very large!  
 
-There was an academic article that uses tornado intensity, path length and width as some of the indicators to produce statistical model that estimates the hazard associated with tornadoes (Meyer, 2002). The below visualization takes reference to Meyer's concept, and hopes to give a clearer vision on the width, length and magnitude with property loss of the tornado. The code is included below and please feel free to have a look if you wish to.
+There was an academic article that uses tornado intensity, path length and width as some of the indicators to produce statistical model that estimates the hazard associated with tornadoes (Meyer, 2002). The below visualization takes reference to Meyer's concept, and hopes to give a clearer vision on the width, length and magnitude with property loss of the tornado. The code is included below and please feel free to have a look if you wish to.  
 
 ```{r result, echo=TRUE}
 #| code-fold: true
@@ -73,12 +82,15 @@ tornado_clean %>%
        color = "Magnitude",  
        size = "Loss ($Billion)") + 
   scale_alpha(guide = "none") + 
-  theme_bw()
+  theme_bw() 
 
 ```
 
-@fig-tornado shows that the property loss do not have a linear positive relationship with tornado width and length. There are very few tornadoes were high in both width and length, but high in either one dimension do not lead to huge property loss. The tornadoes with width 1000-2000 yards with short length caused the most property loss, and there are some significant cases as well when the length and width increases from 1500 width.
 
-While tornadoes with high magnitude may not necessarily cause huge property loss, most of the losses with \$1 billion or above seem to have a magnitude 3 or above.
+@fig-tornado shows that the property loss do not have a linear positive relationship with tornado width and length. There are very few tornadoes were high in both width and length, but high in either one dimension do not lead to huge property loss. The tornadoes with width 1000-2000 yards with short length caused the most property loss, and there are some significant cases as well when the length and width increases from 1500 width.  
 
+While tornadoes with high magnitude may not necessarily cause huge property loss, most of the losses with \$1 billion or above seem to have a magnitude 3 or above.  
 
+This blog post acts as an initial analysis for tornado property loss. It shows that the property loss vary a lot, and could cause up to more than \$2 Billion in some extreme cases. The width of tornado seems to have a stronger relationship with property loss, while the length of tornado seems to only be relevant when the tornado is wide enough. Tornadoes with high magnitude may not necessarily indicate huge property loss, but the huge losses were usually caused by tornadoes with magnitude 3 or above.    
+
+While some patterns from the factors was discovered, further investigation could be done to gain deeper insight. Variables such as month, location and year, which are also available in the current dataset, could be included to perform statistical tests, or even generate models to estimate property loss based on the variables.  
